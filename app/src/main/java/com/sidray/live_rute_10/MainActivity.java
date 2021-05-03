@@ -128,11 +128,9 @@ public class MainActivity extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     String userType = snapshot.child("rol").getValue().toString();
                     if(userType.equals("usuario")){
-                        Toast.makeText(MainActivity.this, "Iniciando Sesion \n" + nnombre, Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(MainActivity.this, HomeActivity.class));
                         finish();
                     }else if(userType.equals("conductor")){
-                        Toast.makeText(MainActivity.this, "Iniciando Sesion \n" + nnombre, Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(MainActivity.this, HomeConductorActivity.class));
                         finish();
                     }
