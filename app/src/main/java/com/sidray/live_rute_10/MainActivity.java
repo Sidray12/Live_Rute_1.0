@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
     private Button btnregistr;
     private String correo;
     private String contra;
-
     private FirebaseAuth auten;
 
     @Override
@@ -59,9 +58,7 @@ public class MainActivity extends AppCompatActivity {
                     if (correo.equals("admin") && contra.equals("1234")){
                         startActivity(new Intent(MainActivity.this, HomeActivity.class));
                         finish();
-
                     }else {
-
                         iniciosesion();
                     }
                 }else{
@@ -69,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
 
         btnregistr.setOnClickListener(new View.OnClickListener() {
             @Override
