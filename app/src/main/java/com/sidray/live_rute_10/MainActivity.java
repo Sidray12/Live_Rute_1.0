@@ -42,26 +42,26 @@ public class MainActivity extends AppCompatActivity {
         getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         auten = FirebaseAuth.getInstance();
-        txtcor= findViewById(R.id.txtemail);
-        txtpassw= findViewById(R.id.txtpass);
-        btnlog= findViewById(R.id.ini_sesion);
-        btnregistr= findViewById(R.id.registrarse);
+        txtcor = findViewById(R.id.txtemail);
+        txtpassw = findViewById(R.id.txtpass);
+        btnlog = findViewById(R.id.ini_sesion);
+        btnregistr = findViewById(R.id.registrarse);
 
         btnlog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                correo=txtcor.getText().toString();
-                contra=txtpassw.getText().toString();
+                correo = txtcor.getText().toString();
+                contra = txtpassw.getText().toString();
 
-                if (!correo.isEmpty() && !contra.isEmpty()){
-                    if (correo.equals("admin") && contra.equals("1234")){
+                if (!correo.isEmpty() && !contra.isEmpty()) {
+                    if (correo.equals("admin") && contra.equals("1234")) {
                         startActivity(new Intent(MainActivity.this, HomeActivity.class));
                         finish();
-                    }else {
+                    } else {
                         iniciosesion();
                     }
-                }else{
+                } else {
                     Toast.makeText(MainActivity.this, "complete todos los campos", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -75,11 +75,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void iniciosesion(){
+    private void iniciosesion() {
         auten.signInWithEmailAndPassword(correo, contra).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
+                if (task.isSuccessful()) {
 
                     FirebaseUser currentUser = auten.getInstance().getCurrentUser();
                     String RegisteredUserID = currentUser.getUid();
@@ -90,10 +90,10 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             String userType = snapshot.child("rol").getValue().toString();
-                            if(userType.equals("usuario")){
+                            if (userType.equals("usuario")) {
                                 startActivity(new Intent(MainActivity.this, HomeActivity.class));
                                 finish();
-                            }else if(userType.equals("conductor")){
+                            } else if (userType.equals("conductor")) {
                                 startActivity(new Intent(MainActivity.this, HomeConductorActivity.class));
                                 finish();
                             }
@@ -106,17 +106,18 @@ public class MainActivity extends AppCompatActivity {
                     });
 
 
-                }else{
+                } else {
                     Toast.makeText(MainActivity.this, "Email o contraseña incorrectos", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
+
     @Override
     protected void onStart() {
         super.onStart();
 
-        if (auten.getCurrentUser() != null){
+        if (auten.getCurrentUser() != null) {
             FirebaseUser currentUser = auten.getInstance().getCurrentUser();
             String RegisteredUserID = currentUser.getUid();
             String nnombre = currentUser.getEmail();
@@ -127,10 +128,12 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     String userType = snapshot.child("rol").getValue().toString();
-                    if(userType.equals("usuario")){
+                    if (userType.equals("usuario")) {
+                        Toast.makeText(MainActivity.this, "Iniciando Sesion \n" + nnombre, Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(MainActivity.this, HomeActivity.class));
                         finish();
-                    }else if(userType.equals("conductor")){
+                    } else if (userType.equals("conductor")) {
+                        Toast.makeText(MainActivity.this, "Iniciando Sesion \n" + nnombre, Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(MainActivity.this, HomeConductorActivity.class));
                         finish();
                     }
@@ -141,7 +144,8 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             });
-        }
-    }
 
+        }
+
+    }
 }
