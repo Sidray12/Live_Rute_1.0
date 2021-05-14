@@ -23,4 +23,13 @@
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorAccent">@color/purple_200</item>
     </style>
+
+    <style name="Theme.Live_Rute_10.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Live_Rute_10.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Live_Rute_10.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

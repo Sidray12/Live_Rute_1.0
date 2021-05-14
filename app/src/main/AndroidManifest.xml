@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Live_Rute_10">
-        <activity android:name=".HomeConductorActivity"></activity>
+        <activity
+            android:name=".HomeUsuarioActivity"
+            android:label="@string/title_activity_home_usuario"
+            android:theme="@style/Theme.Live_Rute_10.NoActionBar"></activity>
+        <activity android:name=".HomeConductorActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".RegistroActivity" />
         <activity

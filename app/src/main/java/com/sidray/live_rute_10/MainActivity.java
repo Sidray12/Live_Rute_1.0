@@ -6,10 +6,10 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,7 +22,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.database.core.Tag;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -91,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             String userType = snapshot.child("rol").getValue().toString();
                             if (userType.equals("usuario")) {
-                                startActivity(new Intent(MainActivity.this, HomeActivity.class));
+                                startActivity(new Intent(MainActivity.this, HomeUsuarioActivity.class));
                                 finish();
                             } else if (userType.equals("conductor")) {
                                 startActivity(new Intent(MainActivity.this, HomeConductorActivity.class));
@@ -120,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         if (auten.getCurrentUser() != null) {
             FirebaseUser currentUser = auten.getInstance().getCurrentUser();
             String RegisteredUserID = currentUser.getUid();
-            String nnombre = currentUser.getEmail();
+            String emau = currentUser.getEmail();
 
             DatabaseReference LoginDatabase = FirebaseDatabase.getInstance().getReference().child("Usuarios").child(RegisteredUserID);
 
@@ -129,11 +128,11 @@ public class MainActivity extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     String userType = snapshot.child("rol").getValue().toString();
                     if (userType.equals("usuario")) {
-                        Toast.makeText(MainActivity.this, "Iniciando Sesion \n" + nnombre, Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(MainActivity.this, HomeActivity.class));
+                        Toast.makeText(MainActivity.this, "Iniciando Sesion \n" + emau, Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(MainActivity.this, HomeUsuarioActivity.class));
                         finish();
                     } else if (userType.equals("conductor")) {
-                        Toast.makeText(MainActivity.this, "Iniciando Sesion \n" + nnombre, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Iniciando Sesion \n" + emau, Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(MainActivity.this, HomeConductorActivity.class));
                         finish();
                     }
