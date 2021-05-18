@@ -1,4 +1,4 @@
-package com.sidray.live_rute_10.ui.slideshow;
+package com.sidray.live_rute_10.ui.favoritos;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

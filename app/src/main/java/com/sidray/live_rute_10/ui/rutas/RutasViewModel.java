@@ -1,4 +1,4 @@
-package com.sidray.live_rute_10.ui.gallery;
+package com.sidray.live_rute_10.ui.rutas;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

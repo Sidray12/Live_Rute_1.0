@@ -1,16 +1,16 @@
 package com.sidray.live_rute_10;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private String correo;
     private String contra;
     private FirebaseAuth auten;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,10 @@ public class MainActivity extends AppCompatActivity {
         txtpassw = findViewById(R.id.txtpass);
         btnlog = findViewById(R.id.ini_sesion);
         btnregistr = findViewById(R.id.registrarse);
+        progressBar = findViewById(R.id.progressBar);
+
+        progressBar.setVisibility(View.INVISIBLE);
+
 
         btnlog.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
+
+                    progressBar.setVisibility(View.VISIBLE);
 
                     FirebaseUser currentUser = auten.getInstance().getCurrentUser();
                     String RegisteredUserID = currentUser.getUid();
@@ -117,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
         if (auten.getCurrentUser() != null) {
+            progressBar.setVisibility(View.VISIBLE);
             FirebaseUser currentUser = auten.getInstance().getCurrentUser();
             String RegisteredUserID = currentUser.getUid();
             String emau = currentUser.getEmail();
@@ -136,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, HomeConductorActivity.class));
                         finish();
                     }
+
                 }
 
                 @Override

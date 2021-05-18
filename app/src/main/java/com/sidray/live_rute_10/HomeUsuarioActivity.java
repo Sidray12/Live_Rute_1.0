@@ -3,31 +3,30 @@ package com.sidray.live_rute_10;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class HomeUsuarioActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
     private FirebaseAuth aut;
+    private Button coment;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -41,7 +40,7 @@ public class HomeUsuarioActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_rutas, R.id.nav_favoritos)
+                R.id.nav_home, R.id.nav_rutas, R.id.nav_favoritos, R.id.nav_comentario)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -55,6 +54,11 @@ public class HomeUsuarioActivity extends AppCompatActivity {
         String RegisteredUserID = currentUser.getUid();
         String mail = currentUser.getEmail();
         //mail_user.setText("2");
+
+
+
+
+
 
 
     }
