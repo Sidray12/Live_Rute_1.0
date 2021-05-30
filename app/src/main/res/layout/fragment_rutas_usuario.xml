@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".ui.rutas.RutasFragment">
+    tools:context=".ui.rutas_usuario.RutasFragment">
 
     <Button
         android:id="@+id/ruta_2"

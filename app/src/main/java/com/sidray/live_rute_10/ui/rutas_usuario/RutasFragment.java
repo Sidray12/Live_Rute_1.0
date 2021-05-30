@@ -1,4 +1,4 @@
-package com.sidray.live_rute_10.ui.rutas;
+package com.sidray.live_rute_10.ui.rutas_usuario;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,7 +26,7 @@ public class RutasFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         rutasViewModel =
                 new ViewModelProvider(this).get(RutasViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_rutas, container, false);
+        View root = inflater.inflate(R.layout.fragment_rutas_usuario, container, false);
         rutaa_1= root.findViewById(R.id.ruta_1);
         rutaa_2= root.findViewById(R.id.ruta_2);
 

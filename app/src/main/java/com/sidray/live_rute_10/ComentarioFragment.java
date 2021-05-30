@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.sidray.live_rute_10.ui.home.HomeFragment;
+import com.sidray.live_rute_10.ui.home_usuario.HomeFragment;
 
 /**
  * A simple {@link Fragment} subclass.

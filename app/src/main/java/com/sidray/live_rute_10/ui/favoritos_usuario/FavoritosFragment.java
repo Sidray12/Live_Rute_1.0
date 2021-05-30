@@ -1,4 +1,4 @@
-package com.sidray.live_rute_10.ui.favoritos;
+package com.sidray.live_rute_10.ui.favoritos_usuario;
 
 import android.content.Context;
 import android.content.Intent;
@@ -34,7 +34,7 @@ public class FavoritosFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         favoritosViewModel =
                 new ViewModelProvider(this).get(FavoritosViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_favoritos, container, false);
+        View root = inflater.inflate(R.layout.fragment_favoritos_usuario, container, false);
 
         listView = root.findViewById(R.id.listV);
 

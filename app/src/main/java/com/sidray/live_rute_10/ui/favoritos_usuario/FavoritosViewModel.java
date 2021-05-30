@@ -1,4 +1,4 @@
-package com.sidray.live_rute_10.ui.favoritos;
+package com.sidray.live_rute_10.ui.favoritos_usuario;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
