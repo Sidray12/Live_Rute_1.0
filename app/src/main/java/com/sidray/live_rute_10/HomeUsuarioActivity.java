@@ -1,11 +1,12 @@
 package com.sidray.live_rute_10;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
@@ -26,8 +27,10 @@ public class HomeUsuarioActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
 
     private FirebaseAuth aut;
-    private Button coment;
+     TextView mail_user;
+     View string;
 
+    @SuppressLint("ResourceType")
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,18 +50,13 @@ public class HomeUsuarioActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        final TextView mail_user = (TextView) findViewById(R.id.titulo_user);
+        mail_user = (TextView) findViewById(R.id.correo_user);
+        //string =  findViewById(R.string.nav_header_title);
 
         aut = FirebaseAuth.getInstance();
         FirebaseUser currentUser = aut.getInstance().getCurrentUser();
-        String RegisteredUserID = currentUser.getUid();
         String mail = currentUser.getEmail();
-        //mail_user.setText("2");
-
-
-
-
-
+        //mail_user.setText(mail);
 
 
     }
@@ -79,7 +77,6 @@ public class HomeUsuarioActivity extends AppCompatActivity {
             aut.signOut();
             startActivity(new Intent(this, MainActivity.class));
             finish();
-
             return true;
         }
 

@@ -12,7 +12,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="LIVE RUTE"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Live_Rute_10">
@@ -31,7 +31,8 @@
 
         <activity
             android:name=".MapaActivity"
-            android:label="@string/title_activity_mapa"></activity>
+            android:label="@string/title_activity_mapa">
+        </activity>
         <activity
             android:name=".HomeUsuarioActivity"
             android:label="@string/title_activity_home_usuario"
