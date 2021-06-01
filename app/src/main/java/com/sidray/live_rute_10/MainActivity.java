@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (!correo.isEmpty() && !contra.isEmpty()) {
                     if (correo.equals("admin") && contra.equals("1234")) {
-                        startActivity(new Intent(MainActivity.this, HomeActivity.class));
+                        startActivity(new Intent(MainActivity.this, AdminActivity.class));
                         finish();
                     } else {
                         iniciosesion();
@@ -100,7 +100,10 @@ public class MainActivity extends AppCompatActivity {
                                 startActivity(new Intent(MainActivity.this, HomeUsuarioActivity.class));
                                 finish();
                             } else if (userType.equals("conductor")) {
-                                startActivity(new Intent(MainActivity.this, HomeConductorActivity.class));
+                                startActivity(new Intent(MainActivity.this, ConductorActivity.class));
+                                finish();
+                            } else if (userType.equals("administrador")){
+                                startActivity(new Intent(MainActivity.this, AdminActivity.class));
                                 finish();
                             }
                         }
@@ -121,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        super.onStart();
+
 
         if (auten.getCurrentUser() != null) {
             progressBar.setVisibility(View.VISIBLE);
@@ -141,7 +144,10 @@ public class MainActivity extends AppCompatActivity {
                         finish();
                     } else if (userType.equals("conductor")) {
                         Toast.makeText(MainActivity.this, "Iniciando Sesion \n" + emau, Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(MainActivity.this, HomeConductorActivity.class));
+                        startActivity(new Intent(MainActivity.this, ConductorActivity.class));
+                        finish();
+                    }else if (userType.equals("administrador")){
+                        startActivity(new Intent(MainActivity.this, AdminActivity.class));
                         finish();
                     }
 
@@ -154,6 +160,6 @@ public class MainActivity extends AppCompatActivity {
             });
 
         }
-
+        super.onStart();
     }
 }

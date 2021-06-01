@@ -1,14 +1,14 @@
-package com.sidray.live_rute_10.ui.favoritos_usuario;
+package com.sidray.live_rute_10.ui_usuario.favoritos_usuario;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class FavoritosViewModel extends ViewModel {
+public class FavoritosUsuarioViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public FavoritosViewModel() {
+    public FavoritosUsuarioViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is slideshow fragment");
     }

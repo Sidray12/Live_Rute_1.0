@@ -1,4 +1,4 @@
-package com.sidray.live_rute_10.ui.rutas_usuario;
+package com.sidray.live_rute_10.ui_usuario.rutas_usuario;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,18 +14,18 @@ import androidx.lifecycle.ViewModelProvider;
 import com.sidray.live_rute_10.MapaActivity;
 import com.sidray.live_rute_10.R;
 
-public class RutasFragment extends Fragment {
+public class RutasUsuarioFragment extends Fragment {
 
     private Button rutaa_1;
     private Button rutaa_2;
     private String select_ruta;
 
-    private RutasViewModel rutasViewModel;
+    private RutasUsuarioViewModel rutasUsuarioViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        rutasViewModel =
-                new ViewModelProvider(this).get(RutasViewModel.class);
+        rutasUsuarioViewModel =
+                new ViewModelProvider(this).get(RutasUsuarioViewModel.class);
         View root = inflater.inflate(R.layout.fragment_rutas_usuario, container, false);
         rutaa_1= root.findViewById(R.id.ruta_1);
         rutaa_2= root.findViewById(R.id.ruta_2);

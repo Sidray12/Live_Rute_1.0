@@ -18,6 +18,10 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.maps.android.data.kml.KmlLayer;
 import com.sidray.live_rute_10.databinding.ActivityMapaBinding;
 
@@ -35,6 +39,11 @@ public class MapaActivity extends FragmentActivity implements OnMapReadyCallback
     private FloatingActionButton b_fav;
     private FloatingActionButton b_bor;
     private SharedPreferences shared;
+    private String nn;
+
+    private FirebaseAuth auth;
+    private DatabaseReference data;
+    private FirebaseUser user;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -49,6 +58,12 @@ public class MapaActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
 
         rutaa = getIntent().getStringExtra("ruta");
+
+        auth = FirebaseAuth.getInstance();
+        data = FirebaseDatabase.getInstance().getReference();
+        user = auth.getInstance().getCurrentUser();
+
+        nn = user.getEmail();
 
         b_fav = findViewById(R.id.btn_favorito);
         b_bor = findViewById(R.id.btn_border);
@@ -173,7 +188,7 @@ public class MapaActivity extends FragmentActivity implements OnMapReadyCallback
 
         if (rutaa.equals("1")) {
             SharedPreferences shared = getSharedPreferences
-                    ("credenciales", Context.MODE_PRIVATE);
+                    (nn, Context.MODE_PRIVATE);
 
             String fav = rutaa;
 
@@ -182,7 +197,7 @@ public class MapaActivity extends FragmentActivity implements OnMapReadyCallback
             editor.commit();
         }else if (rutaa.equals("2")){
             SharedPreferences shared = getSharedPreferences
-                    ("credenciales", Context.MODE_PRIVATE);
+                    (nn, Context.MODE_PRIVATE);
 
             String fav = rutaa;
 
@@ -196,14 +211,14 @@ public class MapaActivity extends FragmentActivity implements OnMapReadyCallback
 
         if (rutaa.equals("1")) {
             SharedPreferences shared = getSharedPreferences
-                    ("credenciales", Context.MODE_PRIVATE);
+                    (nn, Context.MODE_PRIVATE);
 
             SharedPreferences.Editor editor = shared.edit();
             editor.remove("favorito");
             editor.commit();
         }else  if (rutaa.equals("2")){
             SharedPreferences shared = getSharedPreferences
-                    ("credenciales", Context.MODE_PRIVATE);
+                    (nn, Context.MODE_PRIVATE);
 
             SharedPreferences.Editor editor = shared.edit();
             editor.remove("favorito2");
@@ -215,32 +230,21 @@ public class MapaActivity extends FragmentActivity implements OnMapReadyCallback
 
         if (rutaa.equals("1")) {
             SharedPreferences shared = getSharedPreferences
-                    ("credenciales", Context.MODE_PRIVATE);
+                    (nn, Context.MODE_PRIVATE);
 
             ver = shared.getString("favorito", "no");
         }else if (rutaa.equals("2")){
             SharedPreferences shared = getSharedPreferences
-                    ("credenciales", Context.MODE_PRIVATE);
+                    (nn, Context.MODE_PRIVATE);
 
             ver = shared.getString("favorito2", "no");
         }
     }
 
-    /*@RequiresApi(api = Build.VERSION_CODES.M)
-    private void setFavoritoIcon(FloatingActionButton btn_f){
-        int id;
-        if(favorito = true) {
-            id = R.drawable.ic_baseline_favorite;
-        }else{
-            id = R.drawable.ic_favorite_border;
-        }
-
-    }*/
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_favoritos, menu);
+        getMenuInflater().inflate(R.menu.menu_conductor, menu);
 
         return true;
     }

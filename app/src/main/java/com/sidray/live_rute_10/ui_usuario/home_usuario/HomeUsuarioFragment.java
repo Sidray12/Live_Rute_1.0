@@ -1,4 +1,4 @@
-package com.sidray.live_rute_10.ui.home_usuario;
+package com.sidray.live_rute_10.ui_usuario.home_usuario;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,14 +11,14 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.sidray.live_rute_10.R;
 
-public class HomeFragment extends Fragment {
+public class HomeUsuarioFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
+    private HomeUsuarioViewModel homeUsuarioViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        homeUsuarioViewModel =
+                new ViewModelProvider(this).get(HomeUsuarioViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home_usuario, container, false);
         return root;
     }

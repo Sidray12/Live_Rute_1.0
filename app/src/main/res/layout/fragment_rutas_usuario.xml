@@ -5,17 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".ui.rutas_usuario.RutasFragment">
+    tools:context=".ui_usuario.rutas_usuario.RutasUsuarioFragment">
 
     <Button
         android:id="@+id/ruta_2"
-        android:layout_width="412dp"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="match_parent"
         android:layout_height="68dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
         android:drawableLeft="@drawable/ic_baseline_map"
         android:text="RUTA 2 - SANTO DOMINGO"
+        app:cornerRadius="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ruta_1" />
+        app:layout_constraintTop_toBottomOf="@+id/ruta_1"
+        app:strokeColor="@color/purple_500" />
 
     <TextView
         android:id="@+id/textView6"
@@ -30,13 +36,18 @@
 
     <Button
         android:id="@+id/ruta_1"
-        android:layout_width="412dp"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="match_parent"
         android:layout_height="68dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
         android:drawableLeft="@drawable/ic_baseline_map"
         android:text="RUTA 1 - TOLEDO PLATA"
+        app:cornerRadius="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:strokeColor="@color/purple_500" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

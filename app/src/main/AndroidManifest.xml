@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sidray.live_rute_10">
-
+    package="com.sidray.live_rute_10" >
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -15,8 +14,14 @@
         android:label="LIVE RUTE"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Live_Rute_10">
-
+        android:theme="@style/Theme.Live_Rute_10" >
+        <activity
+            android:name=".ConductorActivity"
+            android:label="@string/title_activity_conductor" >
+        </activity>
+        <activity
+            android:name=".AdminActivity"
+            android:label="@string/title_activity_admin" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -31,8 +36,7 @@
 
         <activity
             android:name=".MapaActivity"
-            android:label="@string/title_activity_mapa">
-        </activity>
+            android:label="@string/title_activity_mapa" />
         <activity
             android:name=".HomeUsuarioActivity"
             android:label="@string/title_activity_home_usuario"
@@ -41,7 +45,7 @@
         <activity android:name=".RegistroActivity" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,14 +1,14 @@
-package com.sidray.live_rute_10.ui.home_usuario;
+package com.sidray.live_rute_10.ui_conductor.rutas_conductor;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class RutasConductorViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public RutasConductorViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is home fragment");
     }

@@ -1,4 +1,4 @@
-package com.sidray.live_rute_10.ui.favoritos_usuario;
+package com.sidray.live_rute_10.ui_usuario.favoritos_usuario;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,26 +15,40 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.sidray.live_rute_10.MapaActivity;
 import com.sidray.live_rute_10.R;
 
 import java.util.ArrayList;
 
-public class FavoritosFragment extends Fragment {
+public class FavoritosUsuarioFragment extends Fragment {
 
-    private FavoritosViewModel favoritosViewModel;
+    private FavoritosUsuarioViewModel favoritosUsuarioViewModel;
 
     private ListView listView;
     private ArrayList favo;
     private ArrayAdapter adapter;
     private SharedPreferences shared;
-    private String favv, favv2, item, ruta_s;
+    private String favv, favv2, item, ruta_s, nn;
+
+    private FirebaseAuth auth;
+    private DatabaseReference data;
+    private FirebaseUser user;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        favoritosViewModel =
-                new ViewModelProvider(this).get(FavoritosViewModel.class);
+        favoritosUsuarioViewModel =
+                new ViewModelProvider(this).get(FavoritosUsuarioViewModel.class);
         View root = inflater.inflate(R.layout.fragment_favoritos_usuario, container, false);
+
+        auth = FirebaseAuth.getInstance();
+        data = FirebaseDatabase.getInstance().getReference();
+        user = auth.getInstance().getCurrentUser();
+
+        nn = user.getEmail();
 
         listView = root.findViewById(R.id.listV);
 
@@ -68,7 +82,6 @@ public class FavoritosFragment extends Fragment {
                     Intent intent = new Intent(getActivity(), MapaActivity.class);
                     intent.putExtra("ruta", ruta_s);
                     startActivity(intent);
-                    getExitTransition();
                 }
             }
         });
@@ -78,23 +91,11 @@ public class FavoritosFragment extends Fragment {
     }
 
     private void cargarPreferencias(){
-        SharedPreferences shared = getContext().getSharedPreferences("credenciales", Context.MODE_PRIVATE);
+        SharedPreferences shared = getContext().getSharedPreferences(nn, Context.MODE_PRIVATE);
 
         favv = shared.getString("favorito","no");
         favv2 = shared.getString("favorito2","no");
     }
-
-    /*private void refresh( int miliseconds){
-
-        final Handler handler = new Handler();
-        final Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                contenido();
-            }
-        };
-        handler.postDelayed(runnable, miliseconds);
-    }*/
 
 
 }

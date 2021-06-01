@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.sidray.live_rute_10.ui.home_usuario.HomeFragment;
+import com.sidray.live_rute_10.ui_usuario.home_usuario.HomeUsuarioFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -75,9 +75,9 @@ public class ComentarioFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getContext(),"Comentario Enviado",Toast.LENGTH_SHORT).show();
-                HomeFragment homeFragment = new HomeFragment();
+                HomeUsuarioFragment homeUsuarioFragment = new HomeUsuarioFragment();
                 FragmentTransaction fragmentTransaction = ((AppCompatActivity) getContext()).getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.nav_host_fragment, homeFragment);
+                fragmentTransaction.replace(R.id.nav_host_fragment, homeUsuarioFragment);
                 fragmentTransaction.commit();
                 ((AppCompatActivity) getContext()).finish();
 

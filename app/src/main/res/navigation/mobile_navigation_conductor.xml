@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_rutas_conductor">
+
+    <fragment
+        android:id="@+id/nav_rutas_conductor"
+        android:name="com.sidray.live_rute_10.ui_conductor.rutas_conductor.RutasConductorFragment"
+        android:label="Rutas"
+        tools:layout="@layout/fragment_rutas_conductor" />
+
+    <!--<fragment
+        android:id="@+id/nav_dashboard"
+        android:name="com.sidray.live_rute_10.ui_conductor.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" />-->
+
+    <fragment
+        android:id="@+id/nav_mensajes_conductor"
+        android:name="com.sidray.live_rute_10.ComentarioFragment"
+        android:label="Comentario"
+        tools:layout="@layout/fragment_comentario" />
+</navigation>

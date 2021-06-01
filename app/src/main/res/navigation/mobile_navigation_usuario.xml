@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.sidray.live_rute_10.ui.home_usuario.HomeFragment"
+        android:name="com.sidray.live_rute_10.ui_usuario.home_usuario.HomeUsuarioFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home_usuario" />
 
     <fragment
         android:id="@+id/nav_rutas"
-        android:name="com.sidray.live_rute_10.ui.rutas_usuario.RutasFragment"
+        android:name="com.sidray.live_rute_10.ui_usuario.rutas_usuario.RutasUsuarioFragment"
         android:label="Rutas"
         tools:layout="@layout/fragment_rutas_usuario" />
 
     <fragment
         android:id="@+id/nav_favoritos"
-        android:name="com.sidray.live_rute_10.ui.favoritos_usuario.FavoritosFragment"
+        android:name="com.sidray.live_rute_10.ui_usuario.favoritos_usuario.FavoritosUsuarioFragment"
         android:label="Favoritos"
         tools:layout="@layout/fragment_favoritos_usuario" />
     <fragment
