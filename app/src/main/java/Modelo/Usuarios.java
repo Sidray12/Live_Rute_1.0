@@ -5,6 +5,7 @@ public class Usuarios {
     private String nombre;
     private String correo;
     private String contraseña;
+    private String celular;
     private String rol;
     private String ruta;
 
@@ -43,6 +44,14 @@ public class Usuarios {
         this.contraseña = contraseña;
     }
 
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
     public String getRol() {
         return rol;
     }
@@ -59,8 +68,5 @@ public class Usuarios {
         this.ruta = ruta;
     }
 
-    @Override
-    public String toString() {
-        return nombre;
-    }
+
 }

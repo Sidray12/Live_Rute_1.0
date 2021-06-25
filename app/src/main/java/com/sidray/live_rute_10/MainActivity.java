@@ -1,6 +1,8 @@
 package com.sidray.live_rute_10;
 
+import android.Manifest;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth auten;
     private ProgressBar progressBar;
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.Theme_Live_Rute_10);
@@ -51,12 +55,15 @@ public class MainActivity extends AppCompatActivity {
         progressBar.setVisibility(View.INVISIBLE);
 
 
+        requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.INTERNET}, 200);
+
+
         btnlog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                correo = txtcor.getText().toString();
-                contra = txtpassw.getText().toString();
+                correo = txtcor.getText().toString().trim();
+                contra = txtpassw.getText().toString().trim();
 
                 if (!correo.isEmpty() && !contra.isEmpty()) {
                     if (correo.equals("admin") && contra.equals("1234")) {
@@ -66,7 +73,13 @@ public class MainActivity extends AppCompatActivity {
                         iniciosesion();
                     }
                 } else {
-                    Toast.makeText(MainActivity.this, "complete todos los campos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, " Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
+                    if (correo.isEmpty()){
+                        txtcor.setError("Campo Requerido");
+                    }
+                    if (contra.isEmpty()){
+                        txtpassw.setError("Campo Requerido");
+                    }
                 }
             }
         });
@@ -90,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                     FirebaseUser currentUser = auten.getInstance().getCurrentUser();
                     String RegisteredUserID = currentUser.getUid();
 
-                    DatabaseReference LoginDatabase = FirebaseDatabase.getInstance().getReference().child("Usuarios").child(RegisteredUserID);
+                    DatabaseReference LoginDatabase = FirebaseDatabase.getInstance().getReference().child("Conductor").child(RegisteredUserID);
 
                     LoginDatabase.addValueEventListener(new ValueEventListener() {
                         @Override
@@ -132,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
             String RegisteredUserID = currentUser.getUid();
             String emau = currentUser.getEmail();
 
-            DatabaseReference LoginDatabase = FirebaseDatabase.getInstance().getReference().child("Usuarios").child(RegisteredUserID);
+            DatabaseReference LoginDatabase = FirebaseDatabase.getInstance().getReference().child("Conductor").child(RegisteredUserID);
 
             LoginDatabase.addValueEventListener(new ValueEventListener() {
                 @Override

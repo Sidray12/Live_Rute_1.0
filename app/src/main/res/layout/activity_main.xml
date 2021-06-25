@@ -12,9 +12,9 @@
         android:id="@+id/textv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="BIENVENIDO"
-        android:textSize="36sp"
+        android:layout_marginTop="8dp"
+        android:text="Bienvenido"
+        android:textSize="@dimen/titulo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,7 +22,7 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="327dp"
-        android:layout_height="297dp"
+        android:layout_height="@dimen/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textv"
@@ -36,8 +36,8 @@
         android:layout_marginStart="70dp"
         android:layout_marginEnd="70dp"
         android:hint="Correo"
-        app:boxCornerRadiusBottomStart="30dp"
         app:boxCornerRadiusBottomEnd="30dp"
+        app:boxCornerRadiusBottomStart="30dp"
         app:boxCornerRadiusTopEnd="30dp"
         app:boxCornerRadiusTopStart="30dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,7 +48,7 @@
             android:id="@+id/txtemail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:singleLine="true"/>
+            android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -61,30 +61,31 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="70dp"
         android:hint="Contraseña"
-        app:boxCornerRadiusBottomStart="30dp"
         app:boxCornerRadiusBottomEnd="30dp"
+        app:boxCornerRadiusBottomStart="30dp"
         app:boxCornerRadiusTopEnd="30dp"
         app:boxCornerRadiusTopStart="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout11">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout11"
+        app:passwordToggleEnabled="true">
 
 
         <EditText
             android:id="@+id/txtpass"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:singleLine="true"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/ini_sesion"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="@dimen/tam_btn"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="50dp"
         android:text="INICIAR SESION"
         app:cornerRadius="20dp"
@@ -97,9 +98,9 @@
         android:id="@+id/registrarse"
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="@dimen/tam_btn"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="50dp"
         android:text="REGISTRARSE"
         app:cornerRadius="30dp"

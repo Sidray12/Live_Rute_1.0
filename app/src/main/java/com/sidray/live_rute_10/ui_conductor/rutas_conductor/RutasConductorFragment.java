@@ -51,7 +51,7 @@ public class RutasConductorFragment extends Fragment {
 
         String id = user.getUid();
 
-        data.child("Usuarios").child(id).addValueEventListener(new ValueEventListener() {
+        data.child("Conductor").child(id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 rutaa = snapshot.child("ruta").getValue().toString();
@@ -60,6 +60,10 @@ public class RutasConductorFragment extends Fragment {
                     btn_mr.setText("RUTA 1: TOLEDO PLATA");
                 }else if (rutaa.equals("2")){
                     btn_mr.setText("RUTA 2: SANTO DOMINGO");
+                }else if (rutaa.equals("3")){
+                    btn_mr.setText("RUTA 3: ESCOBAL");
+                }else if (rutaa.equals("4")){
+                    btn_mr.setText("RUTA 4: PORVENIR");
                 }
             }
 
@@ -72,20 +76,12 @@ public class RutasConductorFragment extends Fragment {
         btn_mr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (rutaa.equals("1")){
-                    Intent intent = new Intent(getActivity(), MapaActivity.class);
-                    intent.putExtra("ruta", rutaa);
-                    startActivity(intent);
-                }else if (rutaa.equals("2")){
-                    Intent intent = new Intent(getActivity(), MapaActivity.class);
-                    intent.putExtra("ruta", rutaa);
-                    startActivity(intent);
-                }
+
+                Intent intent = new Intent(getActivity(), MapaActivity.class);
+                intent.putExtra("ruta", rutaa);
+                startActivity(intent);
             }
         });
-
-
-
         return root;
     }
 

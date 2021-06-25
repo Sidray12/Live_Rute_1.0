@@ -1,14 +1,14 @@
 package com.sidray.live_rute_10;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -49,9 +49,9 @@ public class RegistroActivity extends AppCompatActivity {
         btnreg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nombre=txtnom.getText().toString();
-                email=txtem.getText().toString();
-                password=txtpass.getText().toString();
+                nombre=txtnom.getText().toString().trim();
+                email=txtem.getText().toString().trim();
+                password=txtpass.getText().toString().trim();
 
                 if (!nombre.isEmpty() && !email.isEmpty() && !password.isEmpty()){
 
@@ -62,7 +62,14 @@ public class RegistroActivity extends AppCompatActivity {
                     }
 
                 }else{
-                    Toast.makeText(RegistroActivity.this, "Complete todos los campos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistroActivity.this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
+                    if (nombre.isEmpty()){
+                        txtnom.setError("Campo Requerido");
+                    }if (email.isEmpty()){
+                        txtem.setError("Campo Requerido");
+                    }if (password.isEmpty()){
+                        txtpass.setError("Campo Requerido");
+                    }
                 }
 
             }
@@ -84,7 +91,7 @@ public class RegistroActivity extends AppCompatActivity {
 
 
 
-                    data.child("Usuarios").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    data.child("Conductor").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task2) {
                             if (task2.isSuccessful()){
@@ -98,7 +105,8 @@ public class RegistroActivity extends AppCompatActivity {
 
 
                 }else{
-                    Toast.makeText(RegistroActivity.this, "No se pudo registrar", Toast.LENGTH_SHORT).show();
+                    String resul = String.valueOf(task.getException());
+                    Toast.makeText(RegistroActivity.this, "No se pudo registrar"+ resul , Toast.LENGTH_SHORT).show();
                 }
 
             }

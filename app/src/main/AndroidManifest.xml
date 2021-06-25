@@ -7,14 +7,17 @@
          location permissions for the "MyLocation" functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="LIVE RUTE"
+        android:label="Live Rute"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Live_Rute_10" >
+        android:theme="@style/Theme.Live_Rute_10"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".ConductorActivity"
             android:label="@string/title_activity_conductor" >

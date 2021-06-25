@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/nav_mensajes_conductor"
-        android:name="com.sidray.live_rute_10.ComentarioFragment"
+        android:name="com.sidray.live_rute_10.ui_conductor.mensajes_conductor.MensajesConductorFragment"
         android:label="Comentario"
-        tools:layout="@layout/fragment_comentario" />
+        tools:layout="@layout/fragment_mensajes_conductor" />
 </navigation>
